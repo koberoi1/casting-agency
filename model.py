@@ -4,12 +4,12 @@ from flask_sqlalchemy import SQLAlchemy
 import json
 
 
-# Config
-
+db = SQLAlchemy()
 database_name = "castingAgency"
+
+# setup for local mode.
 # database_path = "postgres://{}/{}".format('localhost:5432', database_name)
 # database_path = "sqlite:///{}".format(os.path.join(project_dir, database_filename))
-db = SQLAlchemy()
 # database_filename = "castingAgency.db"
 # project_dir = os.path.dirname(os.path.abspath(__file__))
 # database_path=database_path

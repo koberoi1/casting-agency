@@ -23,6 +23,26 @@ The API has three registered users:
 
 The Auth0 domain and api audience can be found in `setup.sh`.
 
+## Demo Page  
+
+https://casting-agency-webapp.herokuapp.com
+
+Test each endpoint with the link above ,and different role's Jwts.
+JWTs for different role can be accessed by login to the link with username and password provided as follows.
+https://kprod.auth0.com/authorize?audience=castingAgency&response_type=token&client_id=WwlsQzNVr9q37zz71Crr6zTofItGU9ZI&redirect_uri=http://localhost:5432/login-results
+
+```
+- Casting Assistant
+    - UserName: casting.assistant@whatever.com
+    - Password: Password!
+- Casting Director
+    - UserName: casting.director@whatever.com
+    - Password: Password!
+- Executive Producer
+    - UserName: executive.producer@whatever.com
+    - Password: Password!
+```
+
 ## Endpoints
 
 ### `GET /movies`
@@ -202,7 +222,3 @@ Response:
   success: true
 }
 ```
-
-## Tests
-
-To run the tests, run `python3 tests.py`.

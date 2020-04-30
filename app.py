@@ -7,8 +7,6 @@ from auth import AuthError, requires_auth
 from datetime import datetime
 from werkzeug.exceptions import HTTPException
 
-# https://kprod.auth0.com/authorize?audience=castingAgency&response_type=token&client_id=WwlsQzNVr9q37zz71Crr6zTofItGU9ZI&redirect_uri=http://localhost:5432/login-results
-
 # create app
 app = Flask(__name__)
 

@@ -5,6 +5,7 @@ from jose import jwt
 from urllib.request import urlopen
 
 # Config
+# https://kprod.auth0.com/authorize?audience=castingAgency&response_type=token&client_id=WwlsQzNVr9q37zz71Crr6zTofItGU9ZI&redirect_uri=http://localhost:5432/login-results
 AUTH0_DOMAIN = 'kprod.auth0.com'
 ALGORITHMS = ['RS256']
 API_AUDIENCE = 'castingAgency'

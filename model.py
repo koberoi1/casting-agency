@@ -12,6 +12,7 @@ database_name = "castingAgency"
 db = SQLAlchemy()
 # database_filename = "castingAgency.db"
 # project_dir = os.path.dirname(os.path.abspath(__file__))
+# database_path=database_path
 
 
 '''
@@ -20,8 +21,8 @@ setup_db(app)
 '''
 
 
-def setup_db(app, database_path=database_path):
-    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get('DATABSE_URL')
+def setup_db(app):
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get('DATABASE_URL')
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.app = app
     db.init_app(app)

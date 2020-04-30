@@ -22,7 +22,7 @@ setup_db(app)
 
 
 def setup_db(app):
-    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get('DATABASE_URL')
+    app.config["SQLALCHEMY_DATABASE_URI"] = "postgres://znjwtsmkzfozca:59bcec5b00859bcf407466a555657eb712b260d8d06b512f9420532a13043d2c@ec2-34-234-228-127.compute-1.amazonaws.com:5432/d2mulmshfgth62"
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.app = app
     db.init_app(app)

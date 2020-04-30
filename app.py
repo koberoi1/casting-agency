@@ -43,7 +43,7 @@ def get_actors():
         abort(404)
 
 
-@app.route('/'):
+@app.route('/')
 def get_home():
     return('Welcome to the Casting Agency')
 

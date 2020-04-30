@@ -5,15 +5,13 @@ import json
 
 
 # Config
-AUTH0_DOMAIN = 'kprod.auth0.com'
-ALGORITHMS = ['RS256']
-API_AUDIENCE = 'castingAgency'
-# database_name = "castingAgency"
+
+database_name = "castingAgency"
 # database_path = "postgres://{}/{}".format('localhost:5432', database_name)
+# database_path = "sqlite:///{}".format(os.path.join(project_dir, database_filename))
 db = SQLAlchemy()
-database_filename = "castingAgency.db"
-project_dir = os.path.dirname(os.path.abspath(__file__))
-database_path = "sqlite:///{}".format(os.path.join(project_dir, database_filename))
+# database_filename = "castingAgency.db"
+# project_dir = os.path.dirname(os.path.abspath(__file__))
 
 
 '''
@@ -23,7 +21,7 @@ setup_db(app)
 
 
 def setup_db(app, database_path=database_path):
-    app.config["SQLALCHEMY_DATABASE_URI"] = database_path
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get('DATABSE_URL')
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.app = app
     db.init_app(app)

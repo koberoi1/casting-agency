@@ -43,6 +43,11 @@ def get_actors():
         abort(404)
 
 
+@app.route('/'):
+def get_home():
+    return('Welcome to the Casting Agency')
+
+
 @app.route('/movies', methods=['GET'])
 def get_movies():
     try:

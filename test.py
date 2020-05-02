@@ -12,6 +12,7 @@ project_dir = os.path.dirname(os.path.abspath(__file__))
 database_path = "sqlite:///{}".format(os.path.join(project_dir, database_filename))
 TEST_DATABASE_URI = database_path
 
+
 # Fill in JWTs
 CASTING_ASSISTANT = os.getenv('CASTING_ASSISTANT')
 CASTING_DIRECTOR = os.getenv('CASTING_DIRECTOR')

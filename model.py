@@ -1,5 +1,5 @@
 import os
-from sqlalchemy import Column, String, Integer, create_engine, DateTime
+from sqlalchemy import Column, String, Integer, DateTime
 from flask_sqlalchemy import SQLAlchemy
 import json
 
@@ -10,10 +10,8 @@ if os.getenv('ENV') == 'prod':
     database_path = os.getenv('DATABASE_URL')
 
 else:
-    # setup for local mode.
-    database_filename = "castingAgency.db"
-    project_dir = os.path.dirname(os.path.abspath(__file__))
-    database_path = "sqlite:///{}".format(os.path.join(project_dir, database_filename))
+    database_name = "castingAgency"
+    database_path = "postgres://{}/{}".format('localhost:5432', database_name)
 
 
 '''
@@ -28,8 +26,6 @@ def setup_db(app, database_path=database_path):
     db.app = app
     db.init_app(app)
     db.create_all()
-
-# Schema
 
 
 class Movies(db.Model):

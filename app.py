@@ -30,8 +30,8 @@ def get_home():
 
 
 @app.route('/actors', methods=['GET'])
-@requires_auth('get:actors')
-def get_actors(payload):
+# @requires_auth('get:actors')
+def get_actors():
     try:
         actors = Actors.query.all()
         actors = [actor.format() for actor in actors]
@@ -48,8 +48,8 @@ def get_actors(payload):
 
 
 @app.route('/movies', methods=['GET'])
-@requires_auth('get:movies')
-def get_movies(payload):
+# @requires_auth('get:movies')
+def get_movies():
     try:
         movies = Movies.query.all()
         movies = [movie.format() for movie in movies]

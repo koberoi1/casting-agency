@@ -7,7 +7,7 @@ from app import app
 from model import setup_db, Actors, Movies
 
 # SQLite database for local testing
-database_filename = "castingAgency.db"
+database_filename = "testcastingAgency.db"
 project_dir = os.path.dirname(os.path.abspath(__file__))
 database_path = "sqlite:///{}".format(os.path.join(project_dir, database_filename))
 TEST_DATABASE_URI = database_path

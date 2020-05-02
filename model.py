@@ -9,11 +9,11 @@ db = SQLAlchemy()
 if os.getenv('ENV') == 'prod':
     database_path = os.getenv('DATABASE_URL')
 
-else:
+if os.getenv('ENV') == 'dev':
     database_name = "castingAgency"
     database_path = "postgres://{}/{}".format('localhost:5432', database_name)
 
-
+print(os.getenv('ENV'))
 '''
 setup_db(app)
     binds a flask application and a SQLAlchemy service

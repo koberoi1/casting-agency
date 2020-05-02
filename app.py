@@ -24,8 +24,14 @@ def after_request(response):
     return response
 
 # endpoints
+@app.route('/')
+def get_home():
+    return('Welcome to the Casting Agency')
+
+
 @app.route('/actors', methods=['GET'])
-def get_actors():
+@requires_auth('get:actors')
+def get_actors(payload):
     try:
         actors = Actors.query.all()
         actors = [actor.format() for actor in actors]
@@ -41,13 +47,9 @@ def get_actors():
         abort(404)
 
 
-@app.route('/')
-def get_home():
-    return('Welcome to the Casting Agency')
-
-
 @app.route('/movies', methods=['GET'])
-def get_movies():
+@requires_auth('get:movies')
+def get_movies(payload):
     try:
         movies = Movies.query.all()
         movies = [movie.format() for movie in movies]

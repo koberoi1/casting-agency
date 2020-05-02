@@ -5,24 +5,22 @@ import json
 
 
 db = SQLAlchemy()
-database_name = "castingAgency"
+DATABASE_URL = os.getenv('DATABASE_URL')
 
 # setup for local mode.
+# database_name = "castingAgency"
 # database_path = "postgres://{}/{}".format('localhost:5432', database_name)
-# database_path = "sqlite:///{}".format(os.path.join(project_dir, database_filename))
-# database_filename = "castingAgency.db"
-# project_dir = os.path.dirname(os.path.abspath(__file__))
 # database_path=database_path
 
 
 '''
-setup_db(app)
+setup_db(app) s
     binds a flask application and a SQLAlchemy service
 '''
 
 
-def setup_db(app):
-    app.config["SQLALCHEMY_DATABASE_URI"] = "postgres://znjwtsmkzfozca:59bcec5b00859bcf407466a555657eb712b260d8d06b512f9420532a13043d2c@ec2-34-234-228-127.compute-1.amazonaws.com:5432/d2mulmshfgth62"
+def setup_db(app, database_path=DATABASE_URL):
+    app.config["SQLALCHEMY_DATABASE_URI"] = database_path
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.app = app
     db.init_app(app)

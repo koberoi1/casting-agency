@@ -3,12 +3,13 @@ from flask import request, _request_ctx_stack
 from functools import wraps
 from jose import jwt
 from urllib.request import urlopen
+import os
 
 # Config
-# https://kprod.auth0.com/authorize?audience=castingAgency&response_type=token&client_id=WwlsQzNVr9q37zz71Crr6zTofItGU9ZI&redirect_uri=http://localhost:5432/login-results
-AUTH0_DOMAIN = 'kprod.auth0.com'
-ALGORITHMS = ['RS256']
-API_AUDIENCE = 'castingAgency'
+
+AUTH0_DOMAIN = os.environ.get('AUTH0_DOMAIN')
+ALGORITHMS = os.environ.get('ALGORITHMS')
+API_AUDIENCE = os.environ.get('API_AUDIENCE')
 
 # AuthError Exception
 '''
